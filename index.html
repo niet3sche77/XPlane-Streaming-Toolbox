@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Xplane-streaming-toolbox : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Xplane-streaming-toolbox</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/niet3sche77/XPlane-Streaming-Toolbox">View on GitHub</a>
+
+          <h1 id="project_title">Xplane-streaming-toolbox</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/niet3sche77/XPlane-Streaming-Toolbox/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/niet3sche77/XPlane-Streaming-Toolbox/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a id="project-description" class="anchor" href="#project-description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project Description</h2>
+
+<p>This project will serve as a companion dashboard and standalone set of Python scripts designed to ease streaming of X-Plane to Twitch.</p>
+
+<h2>
+<a id="proposed-core-features" class="anchor" href="#proposed-core-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proposed Core Features</h2>
+
+<ul>
+<li>Plane type/designation</li>
+<li>Route/Flight Plan</li>
+<li>"Nearest" VOR/RNAV/Waypoint display
+
+<ul>
+<li>When approaching an airport:
+
+<ul>
+<li>Give the airport ICAO code if it "looks like" landing/takeoff is happening;</li>
+<li>If it looks like landing is happening, guess runway</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="dataref-requirements" class="anchor" href="#dataref-requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>DataRef Requirements</h3>
+
+<ul>
+<li>Plane type / text description</li>
+<li>Flightplan</li>
+<li>"Near" DataRef
+
+<ul>
+<li>"Airport" Data:
+
+<ul>
+<li>ICAO code (no big deal)</li>
+<li>TPA (if none, 1,000' AGL for single prop; 1,500' AGL for turbo &amp; multi-prop &amp; jet traffic)</li>
+<li>Airport runways</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="rulesets" class="anchor" href="#rulesets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Rulesets</h3>
+
+<ul>
+<li>"Landing": Plane's altitude &lt;= TPA for plane type @ airport WHEN within airspace (uncontrolled == w/in 1nm)
+
+<ul>
+<li>Need to "look back" at data snapshots for altitude and airspace; when 2+ snapshots indicate &lt;= TPA and in airspace, the plane is likely landing; this is true if the earliest snapshots list the plane outside the airspace.</li>
+<li>Runway selection: 500' AGL &amp;&amp; Gear Down &amp;&amp; heading within 10 degrees of valid runway heading at airport.</li>
+</ul>
+</li>
+<li>"Takeoff": Same as "landing," but the earliest snapshots take place at the airport at AGL. 
+
+<ul>
+<li>Ends when gear up &amp;&amp; altitude &gt;= TPA.</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="proposed-stretch-feature" class="anchor" href="#proposed-stretch-feature" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proposed "Stretch" Feature</h2>
+
+<ul>
+<li>KML (?) GoogleMaps plugin data layer--can save/replay flight paths.
+
+<ul>
+<li>Look at SkyVector's API--do they have a custom data layer?</li>
+</ul>
+</li>
+</ul>
+
+<p>-- Cheers, <a href="https://github.com/niet3sche77" class="user-mention">@niet3sche77</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Xplane-streaming-toolbox maintained by <a href="https://github.com/niet3sche77">niet3sche77</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
